@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "767938484102",
+    "project_id": "sensor-application-ade37",
+    "storage_bucket": "sensor-application-ade37.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767938484102:android:9666cda3ac61f4354dfe07",
+        "android_client_info": {
+          "package_name": "com.fariz.sensorapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "767938484102-giu7eh75c7807itucjj6vvp0s9hm4qnc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCK6iYXEuS4wvNb3RCcE6O3LSc56Pa4Ejc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "767938484102-giu7eh75c7807itucjj6vvp0s9hm4qnc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
