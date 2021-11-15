@@ -62,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
                 valueJarak = dataSnapshot.child("Node1/distance").getValue().toString();
                 jarak.setText(valueJarak);
 
+
+
                 valueLampu1 = dataSnapshot.child("Node1/lampu1").getValue().toString();
                 if(valueLampu1.equals("0"))
                     buttonLampu1.setChecked(false);
