@@ -23,12 +23,16 @@ public class MainActivity extends AppCompatActivity {
     TextView jarak;
     TextView ldr;
     TextView statusPir;
+    TextView humi;
+    TextView temper;
 
     String valueJarak;
     String valueLdr;
     String valuePir;
     String valueLampu1;
     String valueLampu2;
+    String valueHumi;
+    String valueTemper;
 
     DatabaseReference dref;
 
@@ -44,7 +48,8 @@ public class MainActivity extends AppCompatActivity {
         statusPir = (TextView) findViewById(R.id.txtView_valuePirSensor);
         ldr = (TextView) findViewById(R.id.txtView_valueLdr);
         jarak = (TextView) findViewById(R.id.txtView_valueUltrasonik);
-
+        humi = (TextView) findViewById(R.id.txtView_valueHumiSensor);
+        temper = (TextView) findViewById(R.id.txtView_valueTemperSensor);
 
         dref = FirebaseDatabase.getInstance().getReference();
         dref.addValueEventListener(new ValueEventListener() {
@@ -62,7 +67,11 @@ public class MainActivity extends AppCompatActivity {
                 valueJarak = dataSnapshot.child("Node1/distance").getValue().toString();
                 jarak.setText(valueJarak);
 
+                valueHumi = dataSnapshot.child("Node1/humidity").getValue().toString();
+                humi.setText(valueHumi);
 
+                valueTemper = dataSnapshot.child("Node1/temperature").getValue().toString();
+                temper.setText(valueTemper);
 
                 valueLampu1 = dataSnapshot.child("Node1/lampu1").getValue().toString();
                 if(valueLampu1.equals("0"))
