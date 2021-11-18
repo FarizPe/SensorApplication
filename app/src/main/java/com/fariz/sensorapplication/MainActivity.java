@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     TextView statusPir;
     TextView humi;
     TextView temper;
+    TextView statusFlame;
 
     String valueJarak;
     String valueLdr;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     String valueLampu2;
     String valueHumi;
     String valueTemper;
+    String valueFlame;
 
     DatabaseReference dref;
 
@@ -50,28 +52,35 @@ public class MainActivity extends AppCompatActivity {
         jarak = (TextView) findViewById(R.id.txtView_valueUltrasonik);
         humi = (TextView) findViewById(R.id.txtView_valueHumiSensor);
         temper = (TextView) findViewById(R.id.txtView_valueTemperSensor);
+        statusFlame = (TextView) findViewById(R.id.txtView_valueFlameSensor);
 
         dref = FirebaseDatabase.getInstance().getReference();
         dref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                valuePir = dataSnapshot.child("Node1/pir").getValue().toString();
+                valuePir = dataSnapshot.child("Sensor/pir").getValue().toString();
                 if(valuePir.equals("0"))
                     statusPir.setText("No Motion");
                 else
                     statusPir.setText("Motion Detect");
 
-                valueLdr = dataSnapshot.child("Node1/ldr").getValue().toString();
+                valueLdr = dataSnapshot.child("Sensor/ldr").getValue().toString();
                 ldr.setText(valueLdr);
 
-                valueJarak = dataSnapshot.child("Node1/distance").getValue().toString();
+                valueJarak = dataSnapshot.child("Sensor/distance").getValue().toString();
                 jarak.setText(valueJarak);
 
-                valueHumi = dataSnapshot.child("Node1/humidity").getValue().toString();
+                valueHumi = dataSnapshot.child("Sensor/humidity").getValue().toString();
                 humi.setText(valueHumi);
 
-                valueTemper = dataSnapshot.child("Node1/temperature").getValue().toString();
+                valueTemper = dataSnapshot.child("Sensor/temperature").getValue().toString();
                 temper.setText(valueTemper);
+
+                valueFlame = dataSnapshot.child("Sensor/flame").getValue().toString();
+                if (valueFlame.equals("0"))
+                    statusFlame.setText("No Detect");
+                else
+                    statusFlame.setText("Fire Detect");
 
                 valueLampu1 = dataSnapshot.child("Node1/lampu1").getValue().toString();
                 if(valueLampu1.equals("0"))
